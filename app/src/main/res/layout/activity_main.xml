@@ -21,7 +21,7 @@
         android:padding="20dp"
         android:textSize="40dp"/>
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/btnBuscar"
         android:layout_width="60dp"
         android:layout_height="40dp"
         android:layout_marginLeft="180dp"
@@ -29,16 +29,18 @@
         app:srcCompat="@drawable/buscar"/>
     </LinearLayout>
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="12dp"
-        android:padding="20dp"
-        android:textSize="16dp"
-        android:textAlignment="textStart"
-        android:text="hdjsahjfkdhsakjfhdskjahfkdjshafkjdshakjfdhsljkahfdksj"
-        android:textColor="@color/black"
-        android:background="@drawable/cuadro"/>
+        android:layout_height="260dp"
+        android:layout_margin="20dp">
+        <LinearLayout
+            android:id="@+id/contenidoNotas"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="wrap_content"

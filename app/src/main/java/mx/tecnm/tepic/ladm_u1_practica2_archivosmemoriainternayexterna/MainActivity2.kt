@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import java.io.File
+import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStreamWriter
 
@@ -22,12 +24,17 @@ class MainActivity2 : AppCompatActivity() {
             if(index==0) {
                 if (guardarEnArchivoInterno()) {
                     findViewById<EditText>(R.id.contenido).setText("")
-                    Toast.makeText(this, "SE GUARDÓ LA NOTA", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "SE GUARDÓ LA NOTA EN MEMORIA INTERNA", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "ERROR AL GUARDAR LA NOTA", Toast.LENGTH_SHORT).show()
                 }
             }else{
-                Toast.makeText(this, "MEMORIA EXTERNA", Toast.LENGTH_SHORT).show()
+                if (guardarEnArchivoExterno()) {
+                    findViewById<EditText>(R.id.contenido).setText("")
+                    Toast.makeText(this, "SE GUARDÓ LA NOTA EN MEMORIA EXTERNA", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "ERROR AL GUARDAR LA NOTA", Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -40,6 +47,30 @@ class MainActivity2 : AppCompatActivity() {
             archivo.write(textoAGuardar)
             archivo.flush()
             archivo.close()
+            return true
+        }catch (io: IOException){
+            AlertDialog.Builder(this)
+                .setTitle("¡ERROR!")
+                .setMessage(io.message)
+                .setPositiveButton("ACEPTAR") {dialog, exception->
+                    dialog.dismiss()
+                }
+                .show()
+            return false
+        }
+    }
+
+    private fun guardarEnArchivoExterno() : Boolean{
+        try {
+            val raiz = getExternalFilesDir(null)
+            val archivo = File(raiz?.absolutePath,"archivoExterno.txt")
+            var textoAGuardar = findViewById<EditText>(R.id.contenido).text.toString()
+
+            val objescribir = OutputStreamWriter(FileOutputStream(archivo))
+
+            objescribir.write(textoAGuardar)
+            objescribir.flush()
+            objescribir.close()
             return true
         }catch (io: IOException){
             AlertDialog.Builder(this)

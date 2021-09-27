@@ -57,6 +57,7 @@
             android:src="@drawable/eliminar"/>
     </LinearLayout>
     <ImageView
+        android:id="@+id/new_nota"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="185dp"
         android:layout_width="60dp"

@@ -26,8 +26,8 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/radioGroup"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/radioGroup2"
         android:src="@drawable/save"/>
 
     <TextView
@@ -73,5 +73,41 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:text="Memoria Externa"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Seleccione como desea guardar nota:"
+        android:layout_below="@id/radioGroup"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/textView3">
+
+        <RadioButton
+            android:id="@+id/manual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:checked="true"
+            android:text="Nombre dinámico"/>
+
+        <RadioButton
+            android:id="@+id/dinamico"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:text="Nombre personalizado"/>
     </RadioGroup>
 </RelativeLayout>

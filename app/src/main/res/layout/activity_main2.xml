@@ -17,7 +17,7 @@
         android:background="@color/white"
         android:hint="Introduce el texto aquí..."
         android:textSize="30dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:textColor="@color/black"
         android:paddingBottom="130dp"/>
 
@@ -109,5 +109,15 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:text="Nombre personalizado"/>
+
+        <EditText
+            android:id="@+id/nombreArchivo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/black"
+            android:textSize="25dp"
+            android:background="@color/white"
+            android:hint="Ingrese nombre de la nota" />
     </RadioGroup>
 </RelativeLayout>

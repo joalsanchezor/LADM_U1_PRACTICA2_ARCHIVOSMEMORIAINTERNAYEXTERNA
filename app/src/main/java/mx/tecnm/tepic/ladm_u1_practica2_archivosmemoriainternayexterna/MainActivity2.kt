@@ -29,21 +29,8 @@ class MainActivity2 : AppCompatActivity() {
                 //GENERAR ID DINÁMICO Y UNICO
                 nombreArchivo = UUID.randomUUID().toString()
             }else{
-                val nombre = EditText(this)
-                nombre.inputType = InputType.TYPE_CLASS_TEXT
-                nombre.setHint("Ingrese nombre del archivo")
-
-                AlertDialog.Builder(this)
-                    .setTitle("ATENCION")
-                    .setMessage("Ingrese el nombre del archivo")
-                    .setView(nombre)
-                    .setPositiveButton("GUARDAR") { d, i ->
-                        nombreArchivo = nombre.text.toString().toString()
-                        d.dismiss()
-                    }
-                    .show()
-                if(nombre.toString().isEmpty()){
-                    //si el nombre está vacío, entonces se genera uno dinámico.
+                nombreArchivo = findViewById<EditText>(R.id.nombreArchivo).text.toString()
+                if(nombreArchivo.isEmpty()){
                     nombreArchivo = UUID.randomUUID().toString()
                 }
             }
@@ -114,7 +101,7 @@ class MainActivity2 : AppCompatActivity() {
         }
     }
 
-    /*fun solicitarNombreArchivo() {
+    fun solicitarNombreArchivo() : String{
         val nombre = EditText(this)
         nombre.inputType = InputType.TYPE_CLASS_TEXT
         nombre.setHint("Ingrese nombre del archivo")
@@ -124,14 +111,11 @@ class MainActivity2 : AppCompatActivity() {
             .setMessage("Ingrese el nombre del archivo")
             .setView(nombre)
             .setPositiveButton("GUARDAR") { d, i ->
-                generarCamposTextoDinamicos(nombre.text.toString().toInt())
                 d.dismiss()
             }
-            .setNegativeButton("CANCELAR"){d, i ->
-                d.cancel()
-            }
             .show()
-    }*/
+        return nombre.text.toString().toString()
+    }
 
 
 }

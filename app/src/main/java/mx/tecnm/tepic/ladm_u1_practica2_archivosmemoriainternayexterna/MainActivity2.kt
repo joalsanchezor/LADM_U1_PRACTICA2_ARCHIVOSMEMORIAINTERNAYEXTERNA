@@ -41,6 +41,7 @@ class MainActivity2 : AppCompatActivity() {
             if(index==0) {
                 if (guardarEnArchivoInterno(nombreArchivo.toString())) {
                     findViewById<EditText>(R.id.contenido).setText("")
+                    findViewById<EditText>(R.id.nombreArchivo).setText("")
                     Toast.makeText(this, "SE GUARDÓ LA NOTA EN MEMORIA INTERNA: "+nombreArchivo, Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "ERROR AL GUARDAR LA NOTA", Toast.LENGTH_SHORT).show()
@@ -48,6 +49,7 @@ class MainActivity2 : AppCompatActivity() {
             }else{
                 if (guardarEnArchivoExterno(nombreArchivo.toString())) {
                     findViewById<EditText>(R.id.contenido).setText("")
+                    findViewById<EditText>(R.id.nombreArchivo).setText("")
                     Toast.makeText(this, "SE GUARDÓ LA NOTA EN MEMORIA EXTERNA: "+nombreArchivo, Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this, "ERROR AL GUARDAR LA NOTA", Toast.LENGTH_SHORT).show()
@@ -101,7 +103,7 @@ class MainActivity2 : AppCompatActivity() {
         }
     }
 
-    fun solicitarNombreArchivo() : String{
+    /*fun solicitarNombreArchivo() : String{
         val nombre = EditText(this)
         nombre.inputType = InputType.TYPE_CLASS_TEXT
         nombre.setHint("Ingrese nombre del archivo")
@@ -115,7 +117,7 @@ class MainActivity2 : AppCompatActivity() {
             }
             .show()
         return nombre.text.toString().toString()
-    }
+    }*/
 
 
 }

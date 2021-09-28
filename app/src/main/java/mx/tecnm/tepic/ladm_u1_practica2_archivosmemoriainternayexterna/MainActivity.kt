@@ -36,6 +36,41 @@ class MainActivity : AppCompatActivity() {
         abrir.setOnClickListener(){
             abrirNotas()
         }
+        btnBorrar.setOnClickListener(){
+            borrarNota()
+        }
+    }
+
+    private fun borrarNota() {
+        val nombreNote = EditText(this)
+        nombreNote.inputType = InputType.TYPE_CLASS_TEXT
+        AlertDialog.Builder(this)
+            .setTitle("ATENCION")
+            .setMessage("Nombre Nota a Borrar")
+            .setView(nombreNote)
+            .setPositiveButton("ACEPTAR") { d, i ->
+                var nameNota = nombreNote.text.toString()+".txt"
+                if(deleteFile(nameNota)) {
+                    contenidoNotas.removeAllViews()
+                    notas.remove(nameNota)
+                    var cantidad = notas.count() - 1
+                    if(cantidad != 0) {
+                        for (i in 0..cantidad) {
+                            leerNotas(notas.get(i))
+                        }
+                        Toast.makeText(this, "Nota borrada", Toast.LENGTH_LONG)
+                            .show()
+                    }
+                }
+                else{
+                    Toast.makeText(this, "Nota no se pudo borrar: "+nameNota, Toast.LENGTH_LONG)
+                        .show()
+                }
+            }
+            .setNegativeButton("CANCELAR") { d, i ->
+                d.cancel()
+            }
+            .show()
     }
 
     private fun abrirNotas() {
@@ -84,4 +119,5 @@ class MainActivity : AppCompatActivity() {
         notasLista.setBackgroundColor(Color.YELLOW)
         notasLista.addView(contenido)*/
     }
+
 }

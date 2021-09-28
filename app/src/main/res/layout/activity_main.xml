@@ -46,23 +46,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <ImageView
+        android:id="@+id/new_nota"
         android:layout_marginTop="230dp"
         android:layout_marginLeft="120dp"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/editar"/>
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/nuevo"/>
         <ImageView
-            android:layout_marginTop="230dp"
+            android:id="@+id/btnBorrar"
+            android:layout_marginTop="240dp"
             android:layout_marginLeft="110dp"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/eliminar"/>
     </LinearLayout>
-    <ImageView
-        android:id="@+id/new_nota"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="185dp"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/nuevo"/>
 </LinearLayout>
